@@ -1,5 +1,6 @@
 // import { MacbookScrollDemo } from "@/pages/MacbookScrollDemo";
 import { CardHoverEffectDemo } from "@/pages/CardHoverEffectDemo";
+import { ExpandableCardDemo } from "@/pages/ExpandableCardDemo";
 import { FloatingDockDemo } from "@/pages/FloatingDockDemo";
 import { HeroParallaxDemo } from "@/pages/HeroParallaxDemo";
 // import { NavbarDemo } from "@/pages/NavbarDemo";
@@ -16,6 +17,7 @@ export default function Home() {
       <SVGMaskEffectDemo />
       <CardHoverEffectDemo />
       <TimelineDemo />
+      <ExpandableCardDemo />
     </>
   );
 }
