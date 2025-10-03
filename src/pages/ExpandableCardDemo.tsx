@@ -44,7 +44,7 @@ export function ExpandableCardDemo() {
             </AnimatePresence>
             <AnimatePresence>
                 {active && typeof active === "object" ? (
-                    <div className="fixed inset-0  grid place-items-center z-[100]">
+                    <div className="fixed inset-0 w-full grid place-items-center z-[100]">
                         <motion.button
                             key={`button-${active.title}-${id}`}
                             layout
@@ -68,7 +68,7 @@ export function ExpandableCardDemo() {
                         <motion.div
                             layoutId={`card-${active.title}-${id}`}
                             ref={ref}
-                            className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-neutral-900 dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                            className="w-full max-w-[600px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-neutral-900 dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
                         >
                             <motion.div layoutId={`image-${active.title}-${id}`}>
                                 <img
