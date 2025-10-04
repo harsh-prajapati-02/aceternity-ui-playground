@@ -7,7 +7,7 @@ export function SVGMaskEffectDemo() {
         <div className="flex h-full w-full items-center justify-center overflow-hidden bg-black">
             <MaskContainer
                 revealText={<>
-                    <p className="mx-auto max-w-4xl text-center text-4xl font-bold text-white leading-snug tracking-wide">
+                    <p className="mx-auto max-w-4xl text-center text-3xl md:text-4xl font-bold text-white leading-snug tracking-wide">
                         The first rule of MRR Club is you do not talk about MRR Club. The
                         second rule of MRR Club is you DO NOT talk about MRR Club.
 
