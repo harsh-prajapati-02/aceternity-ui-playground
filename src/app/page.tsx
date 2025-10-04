@@ -12,11 +12,12 @@ import { SVGMaskEffectDemo } from "@/pages/SVGMaskEffectDemo";
 import { TabsDemo } from "@/pages/TabsDemo";
 import { TextHoverEffectDemo } from "@/pages/TextHoverEffectDemo";
 import { TimelineDemo } from "@/pages/TimelineDemo";
+import { WobbleCardDemo } from "@/pages/WobbleCardDemo";
 
 export default function Home() {
   return (
     <>
-    <SpotlightPreview />
+      <SpotlightPreview />
       {/* <NavbarDemo /> */}
       <FloatingDockDemo />
       <HeroParallaxDemo />
@@ -24,7 +25,8 @@ export default function Home() {
       <SVGMaskEffectDemo />
       <FeaturesSectionDemo />
       <TimelineDemo />
-       <CardHoverEffectDemo />
+      <CardHoverEffectDemo />
+      <WobbleCardDemo />  
       <ExpandableCardDemo />
       <TabsDemo />
       <AppleCardsCarouselDemo />
