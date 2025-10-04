@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function WobbleCardDemo() {
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full pt-10 pb-0 md:pb-10">
             <WobbleCard
                 containerClassName="col-span-1 lg:col-span-2 h-full bg-pink-800 min-h-[500px] lg:min-h-[300px]"
                 className=""

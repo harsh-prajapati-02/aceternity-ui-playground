@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import createGlobe from "cobe";
 import { motion } from "motion/react";
@@ -8,6 +8,9 @@ import Image from "next/image";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import { Cover } from "@/components/ui/cover";
 
+// ===============================
+// MAIN COMPONENT
+// ===============================
 export function FeaturesSectionDemo() {
     const features = [
         {
@@ -30,8 +33,7 @@ export function FeaturesSectionDemo() {
             description:
                 "Whether it’s you or Tyler Durden, you can get to know about our product on YouTube.",
             skeleton: <SkeletonThree />,
-            className:
-                "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
+            className: "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
         },
         {
             title: "Deploy in seconds",
@@ -69,6 +71,9 @@ export function FeaturesSectionDemo() {
     );
 }
 
+// ===============================
+// REUSABLE COMPONENTS
+// ===============================
 const FeatureCard = ({
     children,
     className,
@@ -76,7 +81,12 @@ const FeatureCard = ({
     children?: React.ReactNode;
     className?: string;
 }) => (
-    <div className={cn("p-4 sm:p-8 relative overflow-hidden border-neutral-800", className)}>
+    <div
+        className={cn(
+            "p-4 sm:p-8 relative overflow-hidden border-neutral-800",
+            className
+        )}
+    >
         {children}
     </div>
 );
@@ -93,6 +103,9 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => (
     </p>
 );
 
+// ===============================
+// SKELETON 1
+// ===============================
 export const SkeletonOne = () => (
     <div className="relative flex py-8 px-2 gap-10 h-full">
         <div className="w-full p-5 mx-auto bg-neutral-900 dark:bg-neutral-900 shadow-2xl group h-full">
@@ -113,6 +126,62 @@ export const SkeletonOne = () => (
     </div>
 );
 
+// ===============================
+// SKELETON 2 (✅ Fixed typing)
+// ===============================
+export const SkeletonTwo = () => {
+    // ✅ useMemo ensures the array reference is stable between renders
+    const images = useMemo(
+        () => [
+            "https://images.unsplash.com/photo-1517322048670-4fba75cbbb62?q=80&w=3000&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=3425&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=3540&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1554931670-4ebfabf6e7a9?q=80&w=3387&auto=format&fit=crop",
+            "https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=2581&auto=format&fit=crop",
+        ],
+        []
+    );
+
+    const [rotations, setRotations] = useState<number[]>([]);
+
+    useEffect(() => {
+        // ✅ Runs only once now, since `images` is stable
+        setRotations(images.map(() => Math.random() * 20 - 10));
+    }, [images]);
+
+    if (rotations.length === 0) return null; // Avoid SSR mismatch
+
+    return (
+        <div className="relative flex flex-col items-start p-8 gap-10 h-full border-neutral-900 overflow-hidden">
+            {[0, 1].map((row) => (
+                <div key={row} className="flex flex-row -ml-20">
+                    {images.map((image, idx) => (
+                        <motion.div
+                            key={`${row}-${idx}`}
+                            style={{ rotate: rotations[idx] }}
+                            whileHover={{ scale: 1.1, rotate: 0, zIndex: 100 }}
+                            whileTap={{ scale: 1.1, rotate: 0, zIndex: 100 }}
+                            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 border dark:border-neutral-700 overflow-hidden"
+                        >
+                            <Image
+                                src={image}
+                                alt="AI capture sample"
+                                width={500}
+                                height={500}
+                                className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover"
+                            />
+                        </motion.div>
+                    ))}
+                </div>
+            ))}
+            <div className="absolute left-0 inset-y-0 w-20 bg-gradient-to-r from-black dark:from-black to-transparent pointer-events-none" />
+            <div className="absolute right-0 inset-y-0 w-20 bg-gradient-to-l from-black dark:from-black to-transparent pointer-events-none" />
+        </div>
+    );
+};
+// ===============================
+// SKELETON 3
+// ===============================
 export const SkeletonThree = () => (
     <a
         href="https://www.youtube.com/watch?v=RPa3_AD1_Vs"
@@ -135,69 +204,65 @@ export const SkeletonThree = () => (
     </a>
 );
 
-export const SkeletonTwo = () => {
-    const images = [
-        "https://images.unsplash.com/photo-1517322048670-4fba75cbbb62?q=80&w=3000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=3425&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=3540&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1554931670-4ebfabf6e7a9?q=80&w=3387&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1546484475-7f7bd55792da?q=80&w=2581&auto=format&fit=crop",
-    ];
-
-    const imageVariants = {
-        whileHover: { scale: 1.1, rotate: 0, zIndex: 100 },
-        whileTap: { scale: 1.1, rotate: 0, zIndex: 100 },
-    };
-
-    return (
-        <div className="relative flex flex-col items-start p-8 gap-10 h-full border-neutral-900 overflow-hidden">
-            {[0, 1].map((row) => (
-                <div key={row} className="flex flex-row -ml-20">
-                    {images.map((image, idx) => (
-                        <motion.div
-                            key={`${row}-${idx}`}
-                            variants={imageVariants}
-                            whileHover="whileHover"
-                            whileTap="whileTap"
-                            style={{ rotate: Math.random() * 20 - 10 }}
-                            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 border dark:border-neutral-700 overflow-hidden"
-                        >
-                            <Image
-                                src={image}
-                                alt="AI capture sample"
-                                width={500}
-                                height={500}
-                                className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover"
-                            />
-                        </motion.div>
-                    ))}
-                </div>
-            ))}
-            <div className="absolute left-0 inset-y-0 w-20 bg-gradient-to-r from-black dark:from-black to-transparent pointer-events-none" />
-            <div className="absolute right-0 inset-y-0 w-20 bg-gradient-to-l from-black dark:from-black to-transparent pointer-events-none" />
-        </div>
-    );
-};
-
+// ===============================
+// SKELETON 4
+// ===============================
 export const SkeletonFour = () => (
     <div className="h-60 flex flex-col items-center relative bg-transparent mt-10">
         <Globe className="absolute -right-10 -bottom-80" />
     </div>
 );
 
+// ===============================
+// GLOBE (✅ Final Fixed)
+// ===============================
 export const Globe = ({ className }: { className?: string }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => setMounted(true), []);
 
     useEffect(() => {
-        let phi = 0;
-        if (!canvasRef.current) return;
+        if (typeof window === "undefined" || !mounted || !canvasRef.current) return;
 
-        const globe = createGlobe(canvasRef.current, {
+        let phi = 0;
+
+        // Define minimal types to avoid `any`
+        interface GlobeState {
+            phi: number;
+            theta: number;
+        }
+
+        interface Marker {
+            location: [number, number];
+            size: number;
+        }
+
+        interface GlobeOptions {
+            phi: number;
+            theta: number;
+            scale: number;
+            devicePixelRatio: number;
+            width: number;
+            height: number;
+            dark: number;
+            diffuse: number;
+            mapSamples: number;
+            mapBrightness: number;
+            baseColor: [number, number, number];
+            markerColor: [number, number, number];
+            glowColor: [number, number, number];
+            markers: Marker[];
+            onRender: (state: GlobeState) => void;
+        }
+
+        const options: GlobeOptions = {
+            phi: 0,
+            theta: 0,
+            scale: 1,
             devicePixelRatio: 2,
             width: 1200,
             height: 1200,
-            phi: 0,
-            theta: 0,
             dark: 1,
             diffuse: 1.2,
             mapSamples: 16000,
@@ -213,15 +278,28 @@ export const Globe = ({ className }: { className?: string }) => {
                 state.phi = phi;
                 phi += 0.01;
             },
-        });
+        };
+
+        // ✅ Safely bypass missing type definitions for COBE
+        const globe = (createGlobe as unknown as (
+            canvas: HTMLCanvasElement,
+            options: GlobeOptions
+        ) => { destroy: () => void })(canvasRef.current, options);
 
         return () => globe.destroy();
-    }, []);
+    }, [mounted]);
+
+    if (!mounted) return null;
 
     return (
         <canvas
             ref={canvasRef}
-            style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: "1 / 1" }}
+            style={{
+                width: 600,
+                height: 600,
+                maxWidth: "100%",
+                aspectRatio: "1 / 1",
+            }}
             className={className}
         />
     );

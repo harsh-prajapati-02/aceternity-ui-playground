@@ -6,7 +6,9 @@ import { ExpandableCardDemo } from "@/pages/ExpandableCardDemo";
 import { FeaturesSectionDemo } from "@/pages/FeaturesSectionDemo";
 import { FloatingDockDemo } from "@/pages/FloatingDockDemo";
 import { HeroParallaxDemo } from "@/pages/HeroParallaxDemo";
+import { InfiniteMovingCardsDemo } from "@/pages/InfiniteMovingCardsDemo";
 import { SpotlightPreview } from "@/pages/SpotlightPreview";
+import { StickyScrollRevealDemo } from "@/pages/StickyScrollRevealDemo";
 // import { NavbarDemo } from "@/pages/NavbarDemo";
 import { SVGMaskEffectDemo } from "@/pages/SVGMaskEffectDemo";
 import { TabsDemo } from "@/pages/TabsDemo";
@@ -26,8 +28,10 @@ export default function Home() {
       <FeaturesSectionDemo />
       <TimelineDemo />
       <CardHoverEffectDemo />
+      <StickyScrollRevealDemo />
       <WobbleCardDemo />  
       <ExpandableCardDemo />
+      <InfiniteMovingCardsDemo />
       <TabsDemo />
       <AppleCardsCarouselDemo />
       <DraggableCardDemo />
