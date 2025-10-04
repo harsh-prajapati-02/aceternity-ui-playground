@@ -1,4 +1,5 @@
 // import { MacbookScrollDemo } from "@/pages/MacbookScrollDemo";
+import { AppleCardsCarouselDemo } from "@/pages/AppleCardsCarouselDemo";
 import { CardHoverEffectDemo } from "@/pages/CardHoverEffectDemo";
 import { ExpandableCardDemo } from "@/pages/ExpandableCardDemo";
 import { FloatingDockDemo } from "@/pages/FloatingDockDemo";
@@ -23,6 +24,7 @@ export default function Home() {
       <TimelineDemo />
       <ExpandableCardDemo />
       <TabsDemo />
+      <AppleCardsCarouselDemo />
       <TextHoverEffectDemo />
     </>
   );
