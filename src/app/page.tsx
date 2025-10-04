@@ -5,6 +5,7 @@ import { FloatingDockDemo } from "@/pages/FloatingDockDemo";
 import { HeroParallaxDemo } from "@/pages/HeroParallaxDemo";
 // import { NavbarDemo } from "@/pages/NavbarDemo";
 import { SVGMaskEffectDemo } from "@/pages/SVGMaskEffectDemo";
+import { TabsDemo } from "@/pages/TabsDemo";
 import { TextHoverEffectDemo } from "@/pages/TextHoverEffectDemo";
 import { TimelineDemo } from "@/pages/TimelineDemo";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <CardHoverEffectDemo />
       <TimelineDemo />
       <ExpandableCardDemo />
+      <TabsDemo />
       <TextHoverEffectDemo />
     </>
   );
