@@ -3,6 +3,7 @@
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { Cover } from "@/components/ui/cover";
+import Image from "next/image";
 
 export function AppleCardsCarouselDemo() {
     const cards = data.map((card, index) => (
@@ -37,7 +38,7 @@ const DummyContent = () => {
                             Langotiya jeetu ka mara hua yaar is ready to capture every
                             thought.
                         </p>
-                        <img
+                        <Image
                             src="https://assets.aceternity.com/macbook.png"
                             alt="Macbook mockup from Aceternity UI"
                             height="500"

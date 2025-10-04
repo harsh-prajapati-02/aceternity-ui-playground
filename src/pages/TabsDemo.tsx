@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Tabs } from "../components/ui/tabs";
 
 export function TabsDemo() {
@@ -65,7 +66,7 @@ export function TabsDemo() {
 
 const DummyContent = () => {
     return (
-        <img
+        <Image
             src="https://ui.aceternity.com/linear.webp"
             alt="dummy image"
             width="1000"

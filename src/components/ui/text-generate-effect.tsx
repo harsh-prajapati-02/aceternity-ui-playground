@@ -1,21 +1,25 @@
 "use client";
+
 import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "motion/react";
+import { motion, stagger, useAnimate } from "framer-motion"; // ✅ correct import
 import { cn } from "@/lib/utils";
+
+interface TextGenerateEffectProps {
+    words: string;
+    className?: string;
+    filter?: boolean;
+    duration?: number;
+}
 
 export const TextGenerateEffect = ({
     words,
     className,
     filter = true,
     duration = 0.5,
-}: {
-    words: string;
-    className?: string;
-    filter?: boolean;
-    duration?: number;
-}) => {
+}: TextGenerateEffectProps) => {
     const [scope, animate] = useAnimate();
-    let wordsArray = words.split(" ");
+    const wordsArray = words.split(" ");
+
     useEffect(() => {
         animate(
             "span",
@@ -24,39 +28,30 @@ export const TextGenerateEffect = ({
                 filter: filter ? "blur(0px)" : "none",
             },
             {
-                duration: duration ? duration : 1,
+                duration,
                 delay: stagger(0.2),
             }
         );
-    }, [scope.current]);
-
-    const renderWords = () => {
-        return (
-            <motion.div ref={scope}>
-                {wordsArray.map((word, idx) => {
-                    return (
-                        <motion.span
-                            key={word + idx}
-                            className="dark:text-white text-black opacity-0"
-                            style={{
-                                filter: filter ? "blur(10px)" : "none",
-                            }}
-                        >
-                            {word}{" "}
-                        </motion.span>
-                    );
-                })}
-            </motion.div>
-        );
-    };
+        // ✅ add animate & filter & duration to deps, NOT scope.current
+    }, [animate, filter, duration]);
 
     return (
-        <div className={cn("font-bold", className)}>
-            <div>
-                <div className="dark:text-white text-2xl leading-snug tracking-wide mx-auto max-w-4xl text-center text-4xl font-bold text-white dark:text-white">
-                    {renderWords()}
-                </div>
-            </div>
+        <div className={cn("font-bold text-center", className)}>
+            <motion.div ref={scope}>
+                {wordsArray.map((word, idx) => (
+                    <motion.span
+                        key={`${word}-${idx}`}
+                        className="text-black dark:text-white opacity-0 mx-auto max-w-4xl text-center text-3xl md:text-4xl font-bold leading-snug tracking-wide"
+                        style={{
+                            filter: filter ? "blur(10px)" : "none",
+                            display: "inline-block",
+                            marginRight: "0.25rem",
+                        }}
+                    >
+                        {word}
+                    </motion.span>
+                ))}
+            </motion.div>
         </div>
     );
 };
