@@ -3,6 +3,7 @@ import { AppleCardsCarouselDemo } from "@/pages/AppleCardsCarouselDemo";
 import { CardHoverEffectDemo } from "@/pages/CardHoverEffectDemo";
 import { DraggableCardDemo } from "@/pages/DraggableCardDemo";
 import { ExpandableCardDemo } from "@/pages/ExpandableCardDemo";
+import { FeaturesSectionDemo } from "@/pages/FeaturesSectionDemo";
 import { FloatingDockDemo } from "@/pages/FloatingDockDemo";
 import { HeroParallaxDemo } from "@/pages/HeroParallaxDemo";
 import { SpotlightPreview } from "@/pages/SpotlightPreview";
@@ -21,8 +22,9 @@ export default function Home() {
       <HeroParallaxDemo />
       {/* <MacbookScrollDemo /> */}
       <SVGMaskEffectDemo />
-      <CardHoverEffectDemo />
+      <FeaturesSectionDemo />
       <TimelineDemo />
+       <CardHoverEffectDemo />
       <ExpandableCardDemo />
       <TabsDemo />
       <AppleCardsCarouselDemo />
