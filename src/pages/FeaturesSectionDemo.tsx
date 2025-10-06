@@ -5,8 +5,9 @@ import { cn } from "@/lib/utils";
 import createGlobe from "cobe";
 import { motion } from "motion/react";
 import Image from "next/image";
-import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+// import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import { Cover } from "@/components/ui/cover";
+import { CodeBlockDemo } from "./CodeBlockDemo";
 
 // ===============================
 // MAIN COMPONENT
@@ -183,25 +184,7 @@ export const SkeletonTwo = () => {
 // SKELETON 3
 // ===============================
 export const SkeletonThree = () => (
-    <a
-        href="https://www.youtube.com/watch?v=RPa3_AD1_Vs"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="relative flex gap-10 h-full group/image"
-    >
-        <div className="w-full bg-transparent group h-full">
-            <div className="flex flex-col relative">
-                <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
-                <Image
-                    src="https://assets.aceternity.com/fireship.jpg"
-                    alt="YouTube Thumbnail"
-                    width={800}
-                    height={800}
-                    className="h-full w-full object-cover rounded-sm group-hover/image:blur-md transition-all duration-200"
-                />
-            </div>
-        </div>
-    </a>
+    <CodeBlockDemo />
 );
 
 // ===============================

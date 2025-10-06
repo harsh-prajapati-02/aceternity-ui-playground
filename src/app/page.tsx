@@ -4,6 +4,7 @@ import { CardHoverEffectDemo } from "@/pages/CardHoverEffectDemo";
 import { DraggableCardDemo } from "@/pages/DraggableCardDemo";
 import { ExpandableCardDemo } from "@/pages/ExpandableCardDemo";
 import { FeaturesSectionDemo } from "@/pages/FeaturesSectionDemo";
+import { FeaturesSectionDemo2 } from "@/pages/FeaturesSectionDemo2";
 import { FloatingDockDemo } from "@/pages/FloatingDockDemo";
 import { HeroParallaxDemo } from "@/pages/HeroParallaxDemo";
 import { InfiniteMovingCardsDemo } from "@/pages/InfiniteMovingCardsDemo";
@@ -29,7 +30,8 @@ export default function Home() {
       <TimelineDemo />
       <CardHoverEffectDemo />
       <StickyScrollRevealDemo />
-      <WobbleCardDemo />  
+      <WobbleCardDemo />
+      <FeaturesSectionDemo2 />
       <ExpandableCardDemo />
       <InfiniteMovingCardsDemo />
       <TabsDemo />
