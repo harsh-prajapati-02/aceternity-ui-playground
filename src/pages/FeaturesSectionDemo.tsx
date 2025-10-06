@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 // import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import { Cover } from "@/components/ui/cover";
+import { CompareDemo } from "./CompareDemo";
 import { CodeBlockDemo } from "./CodeBlockDemo";
 
 // ===============================
@@ -30,9 +31,9 @@ export function FeaturesSectionDemo() {
             className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
         },
         {
-            title: "Watch our AI on YouTube",
+            title: "",
             description:
-                "Whether it’s you or Tyler Durden, you can get to know about our product on YouTube.",
+                "A comparison component between two images, slide or drag to compare",
             skeleton: <SkeletonThree />,
             className: "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
         },
@@ -111,13 +112,14 @@ export const SkeletonOne = () => (
     <div className="relative flex py-8 px-2 gap-10 h-full">
         <div className="w-full p-5 mx-auto bg-neutral-900 dark:bg-neutral-900 shadow-2xl group h-full">
             <div className="flex flex-col space-y-2">
-                <Image
+                {/* <Image
                     src="https://ui.aceternity.com/linear.webp"
                     alt="header"
                     width={800}
                     height={800}
                     className="h-full w-full object-cover rounded-sm"
-                />
+                /> */}
+                <CodeBlockDemo />
             </div>
         </div>
 
@@ -184,7 +186,7 @@ export const SkeletonTwo = () => {
 // SKELETON 3
 // ===============================
 export const SkeletonThree = () => (
-    <CodeBlockDemo />
+    <CompareDemo />
 );
 
 // ===============================
