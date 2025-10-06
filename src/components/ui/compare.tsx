@@ -214,6 +214,7 @@ export const Compare = ({
                                     "absolute inset-0  z-20 rounded-2xl shrink-0 w-full h-full select-none",
                                     firstImageClassName
                                 )}
+                                fill
                                 draggable={false}
                             />
                         </motion.div>
