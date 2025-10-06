@@ -4,6 +4,7 @@ import {
     DraggableCardContainer,
 } from "@/components/ui/draggable-card";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export function DraggableCardDemo() {
     const items = [
@@ -53,6 +54,12 @@ export function DraggableCardDemo() {
 
     return (
         <DraggableCardContainer className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+            <div
+                className={cn(
+                    "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",
+                    "[background-image:linear-gradient(to_right,#171717_1px,transparent_1px),linear-gradient(to_bottom,#171717_1px,transparent_1px)]",
+                )}
+            />
             <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-700 dark:text-neutral-400 md:text-4xl">
                 If it’s your first day at Fight Club, you have to fight.
             </p>
