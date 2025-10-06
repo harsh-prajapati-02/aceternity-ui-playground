@@ -154,7 +154,7 @@ export const SkeletonTwo = () => {
     return (
         <div className="relative flex flex-col items-start p-8 gap-10 h-full border-neutral-900 overflow-hidden">
             {[0, 1].map((row) => (
-                <div key={row} className="flex flex-row -ml-20">
+                <div key={row} className="flex flex-row">
                     {images.map((image, idx) => (
                         <motion.div
                             key={`${row}-${idx}`}
