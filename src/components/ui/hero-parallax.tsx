@@ -9,6 +9,7 @@ import {
 } from "motion/react";
 import { CoverDemo } from "@/pages/CoverDemo";
 import Image from "next/image";
+import { HoverBorderGradientDemo } from "@/pages/HoverBorderGradientDemo";
 
 export const HeroParallax = ({
     products,
@@ -103,13 +104,14 @@ export const HeroParallax = ({
 
 export const Header = () => {
     return (
-        <div className="max-w-3xl relative mx-auto py-20 md:py-30 text-center w-full left-0 top-0">
+        <div className="max-w-3xl relative mx-auto py-20 md:py-20 text-center w-full left-0 top-0">
             <CoverDemo />
             <p className="md:text-xl mt-8 dark:text-neutral-200">
                 We build beautiful products with the latest technologies and frameworks.
                 We are a team of passionate developers and designers that love to build
                 amazing products.
             </p>
+            <HoverBorderGradientDemo />
         </div>
     );
 };
